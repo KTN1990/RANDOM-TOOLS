@@ -31,6 +31,6 @@ if __name__ == '__main__':
        if len(argv)==2: s,e = argv[1].split('-')
        else: s,e = raw_input("[!] PLEASE ENTER SPAN RANGE IP (EXEMPLE 1.0.0.0-1.255.255.255): ").split('-')
        ranger = lambda s,e: [inet_ntoa(pack('>I', _)) for _ in range(unpack('>I', inet_aton(s))[0], unpack('>I', inet_aton(e))[0]+1)]
-       Pool(80).map(work, ranger(s,e))
+       Pool(100).map(work, ranger(s,e))
        print("\nEND OF SCAN")
    except: print("\nOKAY BYE!"); exit()
